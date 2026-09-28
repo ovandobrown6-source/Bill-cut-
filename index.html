@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bill Cut</title>
+</head>
+
+<body>
+  <h1>Bill Cut</h1>
+  <p>Find out how much you can save on a bill</p>
+
+  <label>Bill amount:</label>
+  <input id="bill" type="number" placeholder="Enter amount">
+
+  <br><br>
+
+  <label>Cut percentage:</label>
+  <input id="cut" type="number" placeholder="Enter %">
+
+  <br><br>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <h2 id="result"></h2>
+
+  <script>
+    function calculate() {
+      let bill = Number(document.getElementById("bill").value);
+      let cut = Number(document.getElementById("cut").value);
+
+      let savings = bill * cut / 100;
+      let newBill = bill - savings;
+
+      document.getElementById("result").innerText =
+        "You save $" + savings.toFixed(2) +
+        " — New bill: $" + newBill.toFixed(2);
+    }
+  </script>
+</body>
+</html>
